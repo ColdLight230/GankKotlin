@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="f1">17sp</dimen>
+    <dimen name="f2">16sp</dimen>
+    <dimen name="f3">15sp</dimen>
+    <dimen name="f4">14sp</dimen>
+    <dimen name="f5">13sp</dimen>
+    <dimen name="f6">12sp</dimen>
+    <dimen name="f7">11sp</dimen>
+    <dimen name="f8">10sp</dimen>
+    <dimen name="f9">30sp</dimen>
+    <dimen name="f10">40sp</dimen>
+    <dimen name="f11">9sp</dimen>
+    <dimen name="f12">22sp</dimen>
+    <dimen name="f13">19sp</dimen>
+    <dimen name="f14">20sp</dimen>
+    <dimen name="f15">18sp</dimen>
+    <dimen name="f16">24sp</dimen>
+    <dimen name="f17">195sp</dimen>
+</resources>
