@@ -60,7 +60,7 @@ class DocumentAdapter(data: List<ArticleWithContent>) : BaseQuickAdapter<Article
         set2.play(backgroundColorAnimator2).with(textColorAnimator2)
         set2.duration = 300
 
-        helper.itemView.setOnTouchListener { v, event ->
+        helper.itemView.setOnTouchListener { _, event ->
             when (event.action) {
                 MotionEvent.ACTION_DOWN -> {
                     set1.start()

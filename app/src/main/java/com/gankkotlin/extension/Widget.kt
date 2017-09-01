@@ -7,7 +7,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 
 /**
- * 描    述：
+ * 描    述：RecyclerView分割线
  * 作    者：xul@13322.com
  * 时    间：2017/6/29
  */
@@ -29,6 +29,9 @@ class RecyclerViewDivider(val dividerDrawable: Drawable, val leftPadding: Int = 
         for (i in 0..childCount - 1) {
             val left: Int
             val right: Int
+            val top: Int
+            val bottom: Int
+
             if (i == childCount - 1) {
                 left = parent.paddingLeft
                 right = parent.width - parent.paddingRight
@@ -39,8 +42,6 @@ class RecyclerViewDivider(val dividerDrawable: Drawable, val leftPadding: Int = 
             val child = parent.getChildAt(i)
             val params = child.layoutParams as RecyclerView.LayoutParams
 
-            val top: Int
-            val bottom: Int
             if (i == childCount - 1) {
                 bottom = child.top - params.topMargin
                 top = bottom

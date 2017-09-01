@@ -7,11 +7,12 @@ import com.gankkotlin.databinding.ActivityMainBinding
 import com.gankkotlin.ui.common.base.BaseActivity
 import com.gankkotlin.ui.common.widget.TabPagerAdapter
 import com.gankkotlin.ui.document.DocumentFragment
+import com.gankkotlin.ui.openeyes.OpenEyesFragment
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
     private val mAdapter by lazy { TabPagerAdapter(supportFragmentManager) }
-    private val mFragments by lazy { arrayOf(DocumentFragment.newInstance(), DocumentFragment.newInstance(), DocumentFragment.newInstance()) }
+    private val mFragments by lazy { arrayOf(DocumentFragment.newInstance(), OpenEyesFragment.newInstance(), DocumentFragment.newInstance()) }
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         binding.viewPager.currentItem = item.order

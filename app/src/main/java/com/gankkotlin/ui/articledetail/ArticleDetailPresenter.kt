@@ -26,7 +26,7 @@ class ArticleDetailPresenter(val mView: ArticleDetailContract.View) : BasePresen
     }
     val onNext by lazy {
         { result: Map<String, List<DailyData>> ->
-            result.forEach { key, value ->
+            result.forEach { (key, value) ->
                 if (key == Category.福利) return@forEach
                 value.forEach {
                     dailyContent.add(ArticleDetailViewModel(if (it.images != null && it.images!!.isNotEmpty()) ONE_PIC else NO_PIC, it))

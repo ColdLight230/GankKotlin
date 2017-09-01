@@ -13,6 +13,7 @@
         app:layout_widthPercent="100%">
 
         <ImageView
+            android:scaleType="fitXY"
             android:id="@+id/background"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

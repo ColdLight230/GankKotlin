@@ -124,19 +124,12 @@ object NetUtils {
                 .getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
         // Wifi
-        var state: NetworkInfo.State = connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI)
-                .state
-        if (state == NetworkInfo.State.CONNECTED || state == NetworkInfo.State.CONNECTING) {
-            return NETWORK_WIFI
+        val state: NetworkInfo? = connManager.activeNetworkInfo
+        return when {
+            state?.type == ConnectivityManager.TYPE_WIFI -> NETWORK_WIFI
+            state?.type == ConnectivityManager.TYPE_MOBILE -> NETWORK_MOBILE
+            else -> NETWORK_NONE
         }
-
-        // Mobile
-        state = connManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE)
-                .state
-        if (state == NetworkInfo.State.CONNECTED || state == NetworkInfo.State.CONNECTING) {
-            return NETWORK_MOBILE
-        }
-        return NETWORK_NONE
     }
 
 

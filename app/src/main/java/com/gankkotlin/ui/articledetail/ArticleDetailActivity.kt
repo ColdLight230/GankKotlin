@@ -22,7 +22,7 @@ class ArticleDetailActivity : BaseActivity<ActivityArticleDetailBinding>(R.layou
         super.onCreate(savedInstanceState)
         binding.toolbar.title = ""
         setSupportActionBar(binding.toolbar)
-        binding.toolbar.setNavigationOnClickListener { this.finish() }
+        binding.toolbar.setNavigationOnClickListener { onBackPressed() }
         binding.appBar.addOnOffsetChangedListener { appBarLayout, verticalOffset ->
             when (1 + verticalOffset / appBarLayout.totalScrollRange) {
                 0 -> binding.title.visibility = View.VISIBLE

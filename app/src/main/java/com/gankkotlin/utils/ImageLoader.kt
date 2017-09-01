@@ -71,6 +71,17 @@ object ImageLoader {
     }
 
     /**
+     * 加载 网络图片 若无则 加载 Drawable 图片
+     * @param context   context
+     * @param resId     drawableResId
+     * @param imageView imageView
+     */
+    fun loadImage(context: Context, url: String?, resId: Int, imageView: ImageView) {
+//        Glide.with(context).load(resourceIdToUri(context, resId)).into(imageView)
+        Glide.with(context).load(url).placeholder(resId).error(resId).into(imageView)
+    }
+
+    /**
      * 将资源ID转为Uri
      * @param context    context
      * @param resourceId resourceId

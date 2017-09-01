@@ -8,6 +8,7 @@ import android.support.annotation.IdRes
 import android.support.annotation.LayoutRes
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
+import com.gankkotlin.extension.fixInputMethodManagerLeak
 
 /**
  * 描    述：
@@ -30,6 +31,12 @@ abstract class BaseActivity<B : ViewDataBinding>(@LayoutRes val layoutId: Int) :
                 .replace(containerId, fragment)
         if (addToBackStack) transaction.addToBackStack(null)
         transaction.commit()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+//        fixHWInputMethodManagerLeak(this)
+        fixInputMethodManagerLeak(this)
     }
 
 }

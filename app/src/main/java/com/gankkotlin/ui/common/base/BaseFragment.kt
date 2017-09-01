@@ -51,6 +51,7 @@ abstract class BaseFragment<B : ViewDataBinding>(@LayoutRes val layoutId: Int) :
             is SocketTimeoutException -> toast("服务器连接超时")
             is ConnectException -> toast("网络连接异常")
             else -> toast("未知错误")
+
         }
     }
 }
