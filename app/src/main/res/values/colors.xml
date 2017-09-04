@@ -16,5 +16,6 @@
     <color name="translucent">#21000000</color>
     <color name="shadowColor">#22000000</color>
     <color name="maskColor">#33000000</color>
+    <color name="videoBackground">#dd000000</color>
 
 </resources>

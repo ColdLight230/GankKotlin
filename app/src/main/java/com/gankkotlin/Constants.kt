@@ -7,6 +7,10 @@ package com.gankkotlin
  */
 object Constants {
 
+    const val FIRST_INTENT_PARAM = "FIRST_INTENT_PARAM"
+    const val SECOND_INTENT_PARAM = "SECOND_INTENT_PARAM"
+    const val THIRD_INTENT_PARAM = "THIRD_INTENT_PARAM"
+
     object IntentKey {
         const val ARTICLE = "article"
         const val CATEGORY = "category"
