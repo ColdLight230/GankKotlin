@@ -47,25 +47,18 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile "junit:junit:$junit_version"
-    testCompile "org.robolectric:robolectric:3.1"
-    testCompile 'org.khronos:opengl-api:gl1.1-android-2.1_r1'
 
     compile "com.android.support:appcompat-v7:$support_lib_version"
     compile "com.android.support:design:$support_lib_version"
     compile "com.android.support:support-v4:$support_lib_version"
     compile "com.android.support:percent:$support_lib_version"
     compile "com.android.support:cardview-v7:$support_lib_version"
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
     compile "com.android.support:customtabs:$support_lib_version"
 
-    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.8.0@aar'
-    compile 'com.yqritc:recyclerview-flexibledivider:1.4.0'
 
-    compile 'com.github.zhaokaiqiang.klog:library:1.5.0'
 
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
-    kapt 'com.android.databinding:compiler:2.3.2'
 
     compile "io.reactivex.rxjava2:rxjava:$rxjava_version"
     compile "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
@@ -74,11 +67,9 @@ dependencies {
     compile "com.trello.rxlifecycle2:rxlifecycle-components:$rxlifecycle_version"
     compile "com.trello.rxlifecycle2:rxlifecycle-kotlin:$rxlifecycle_version"
 
-    compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'com.github.bumptech.glide:okhttp3-integration:1.4.0@aar'
-
     //video player
     compile 'fm.jiecao:jiecaovideoplayer:5.8.1'
+    
 
     // support modules
     compile project(':data')
@@ -87,6 +78,16 @@ dependencies {
     releaseCompile "com.squareup.leakcanary:leakcanary-android:$leakcanary_version"
     testCompile "com.squareup.leakcanary:leakcanary-android:$leakcanary_version"
 
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.8.0@aar'
+    compile 'com.yqritc:recyclerview-flexibledivider:1.4.0'
+    compile 'com.github.zhaokaiqiang.klog:library:1.5.0'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.github.bumptech.glide:okhttp3-integration:1.4.0@aar'
+    compile 'com.shuyu:GSYVideoPlayer:2.0.6'
+    testCompile 'org.robolectric:robolectric:3.1'
+    testCompile 'org.khronos:opengl-api:gl1.1-android-2.1_r1'
+    kapt 'com.android.databinding:compiler:2.3.2'
 }
 repositories {
     mavenCentral()

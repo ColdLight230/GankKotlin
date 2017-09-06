@@ -7,7 +7,7 @@ import com.chad.library.adapter.base.BaseViewHolder
 import com.data.bean.openeyes.ItemListBean
 import com.gankkotlin.Constants
 import com.gankkotlin.R
-import com.gankkotlin.ui.videoplayer.VideoPlayerActivity
+import com.gankkotlin.ui.videoplayer.JCVideoPlayerActivity
 import com.gankkotlin.utils.ImageLoader
 
 /**
@@ -21,7 +21,7 @@ class OpenEyesAdapter(data: List<ItemListBean>) : BaseQuickAdapter<ItemListBean,
         helper.setText(R.id.article_title, item.data?.title)
 
         helper.itemView.setOnClickListener {
-            val intent = Intent(mContext, VideoPlayerActivity::class.java)
+            val intent = Intent(mContext, JCVideoPlayerActivity::class.java)
             intent.putExtra(Constants.FIRST_INTENT_PARAM, item.data?.playUrl)
             intent.putExtra(Constants.SECOND_INTENT_PARAM, item.data?.title)
             mContext.startActivity(intent)

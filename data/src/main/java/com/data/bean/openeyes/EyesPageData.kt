@@ -1,5 +1,8 @@
 package com.data.bean.openeyes
 
+import android.os.Parcel
+import android.os.Parcelable
+
 /**
  * 描    述：
  * 作    者：xul@13322.com
@@ -101,4 +104,35 @@ data class TagsBean(
 )
 
 class EyesPage(var num: Int, var page: Int)
+
+data class Video(val name: String, val duration: Long,val type: String, val size: Long, val data: String, val imageUrl: String?, val desc: String?) : Parcelable{
+    companion object {
+        @JvmField val CREATOR: Parcelable.Creator<Video> = object : Parcelable.Creator<Video> {
+            override fun createFromParcel(source: Parcel): Video = Video(source)
+            override fun newArray(size: Int): Array<Video?> = arrayOfNulls(size)
+        }
+    }
+
+    constructor(source: Parcel) : this(
+    source.readString(),
+    source.readLong(),
+    source.readString(),
+    source.readLong(),
+    source.readString(),
+    source.readString(),
+    source.readString()
+    )
+
+    override fun describeContents() = 0
+
+    override fun writeToParcel(dest: Parcel, flags: Int) {
+        dest.writeString(name)
+        dest.writeLong(duration)
+        dest.writeString(type)
+        dest.writeLong(size)
+        dest.writeString(data)
+        dest.writeString(imageUrl)
+        dest.writeString(desc)
+    }
+}
 

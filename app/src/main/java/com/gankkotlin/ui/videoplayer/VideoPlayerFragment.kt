@@ -6,7 +6,6 @@ import com.gankkotlin.Constants
 import com.gankkotlin.R
 import com.gankkotlin.databinding.FragmentVideoPlayerBinding
 import com.gankkotlin.ui.common.base.BaseFragment
-import com.gankkotlin.widget.VideoPlayerView
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard
 
 /**
@@ -18,7 +17,7 @@ class VideoPlayerFragment : BaseFragment<FragmentVideoPlayerBinding>(R.layout.fr
 
     val mUrl by lazy { arguments.getString(Constants.FIRST_INTENT_PARAM) }
     val mTitle by lazy { arguments.getString(Constants.SECOND_INTENT_PARAM) }
-    val mVideoPlayerView by lazy { binding.videoPlayerView as VideoPlayerView }
+    val mVideoPlayerView by lazy { binding.videoPlayerView as JCVideoPlayerStandard }
 
     companion object {
         fun newInstance(url: String, title: String): VideoPlayerFragment {
