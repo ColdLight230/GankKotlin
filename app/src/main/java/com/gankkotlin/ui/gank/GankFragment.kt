@@ -1,4 +1,4 @@
-package com.gankkotlin.ui.document
+package com.gankkotlin.ui.gank
 
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
@@ -13,14 +13,14 @@ import com.gankkotlin.ui.common.widget.TabLazyFragment
  * 作    者：xul@13322.com
  * 时    间：2017/6/8
  */
-class DocumentFragment : TabLazyFragment<FragmentCommonRefreshLayoutBinding>(R.layout.fragment_common_refresh_layout), DocumentContract.View {
+class GankFragment : TabLazyFragment<FragmentCommonRefreshLayoutBinding>(R.layout.fragment_common_refresh_layout), GankContract.View {
     override fun initData() {
         refresh.invoke()
         binding.refreshLayout.isRefreshing = true
     }
 
-    val mPresenter by lazy { DocumentPresenter(this) }
-    val mAdapter by lazy { DocumentAdapter(mPresenter.mDatas) }
+    val mPresenter by lazy { GankPresenter(this) }
+    val mAdapter by lazy { GankAdapter(mPresenter.mDatas) }
     val refresh = { mPresenter.refresh() }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
@@ -47,7 +47,7 @@ class DocumentFragment : TabLazyFragment<FragmentCommonRefreshLayoutBinding>(R.l
     }
 
     companion object {
-        fun newInstance() = DocumentFragment()
+        fun newInstance() = GankFragment()
     }
 
     override fun onError(throwable: Throwable) {

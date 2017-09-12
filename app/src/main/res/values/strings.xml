@@ -5,5 +5,6 @@
     <string name="title_featured">精选</string>
     <string name="title_recommend">推荐</string>
 
-    <string name="transition_document_pic" translatable="false">sharedPicView</string>
+    <string name="transition_gank_pic" translatable="false">sharedPicView</string>
+    <string name="transition_open_eyes_pic" translatable="false">sharedEyesPicView</string>
 </resources>

@@ -9,9 +9,8 @@ import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer
 
 class JCVideoPlayerActivity : BaseActivity<ActivityJcvideoPlayerBinding>(R.layout.activity_jcvideo_player) {
 
-    val mUrl: String by lazy { intent.getStringExtra(Constants.FIRST_INTENT_PARAM) }
-    val mTitle: String by lazy { intent.getStringExtra(Constants.SECOND_INTENT_PARAM) }
-    val mFragment by lazy { VideoPlayerFragment.newInstance(mUrl, mTitle) }
+    val mViewModel by lazy { intent.getParcelableExtra<VideoViewModel>(Constants.FIRST_INTENT_PARAM) }
+    val mFragment by lazy { VideoPlayerFragment.newInstance(mViewModel.url, mViewModel.title, mViewModel.imageUrl) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +27,7 @@ class JCVideoPlayerActivity : BaseActivity<ActivityJcvideoPlayerBinding>(R.layou
     }
 
     override fun onBackPressed() {
-        if(JCVideoPlayer.backPress()){
+        if (JCVideoPlayer.backPress()) {
             return
         }
         super.onBackPressed()

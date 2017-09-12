@@ -17,7 +17,7 @@
             android:id="@+id/background"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:transitionName="@string/transition_document_pic" />
+            android:transitionName="@string/transition_gank_pic" />
 
 
         <TextView

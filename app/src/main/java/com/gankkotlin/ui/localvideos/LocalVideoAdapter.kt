@@ -1,13 +1,16 @@
 package com.gankkotlin.ui.localvideos
 
-import android.content.Intent
 import android.widget.ImageView
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.data.bean.openeyes.Video
 import com.gankkotlin.Constants
 import com.gankkotlin.R
+import com.gankkotlin.extension.formatDuration
+import com.gankkotlin.extension.formatFileSize
 import com.gankkotlin.ui.videoplayer.JCVideoPlayerActivity
+import com.gankkotlin.ui.videoplayer.VideoViewModel
+import org.jetbrains.anko.startActivity
 
 /**
  * 描    述：
@@ -18,16 +21,13 @@ class LocalVideoAdapter(date: List<Video>) : BaseQuickAdapter<Video, BaseViewHol
 
     override fun convert(helper: BaseViewHolder, item: Video) {
         helper.setText(R.id.tv_title, item.name)
-                .setText(R.id.tv_time, "${item.duration}")
-                .setText(R.id.tv_username, "${item.type}")
+                .setText(R.id.tv_time, item.duration.formatDuration())
+                .setText(R.id.tv_username, item.size.formatFileSize())
 
         val iv_preview = helper.getView<ImageView>(R.id.iv_preview)
 
         helper.itemView.setOnClickListener {
-            val intent = Intent(mContext, JCVideoPlayerActivity::class.java)
-            intent.putExtra(Constants.FIRST_INTENT_PARAM, item.data)
-            intent.putExtra(Constants.SECOND_INTENT_PARAM, item.name)
-            mContext.startActivity(intent)
+            mContext.startActivity<JCVideoPlayerActivity>(Constants.FIRST_INTENT_PARAM to VideoViewModel(item.name, item.data, null))
         }
     }
 }

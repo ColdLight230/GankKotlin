@@ -1,4 +1,4 @@
-package com.gankkotlin.ui.document
+package com.gankkotlin.ui.gank
 
 import com.data.bean.Article
 import com.data.bean.ArticleWithContent
@@ -16,7 +16,7 @@ import io.reactivex.functions.BiFunction
  * 作    者：xul@13322.com
  * 时    间：2017/6/8
  */
-class DocumentPresenter(val mView: DocumentContract.View) : BasePresenter(), DocumentContract.Presenter {
+class GankPresenter(val mView: GankContract.View) : BasePresenter(), GankContract.Presenter {
 
     val mPage = Page(10, 1)
     val mDatas = ArrayList<ArticleWithContent>()

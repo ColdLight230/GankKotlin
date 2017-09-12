@@ -1,11 +1,8 @@
-package com.gankkotlin.ui.document
+package com.gankkotlin.ui.gank
 
 import android.animation.AnimatorSet
 import android.animation.ArgbEvaluator
 import android.animation.ObjectAnimator
-import android.app.Activity
-import android.content.Intent
-import android.support.v4.app.ActivityOptionsCompat
 import android.support.v4.content.ContextCompat
 import android.view.MotionEvent
 import android.widget.ImageView
@@ -17,6 +14,7 @@ import com.gankkotlin.Constants
 import com.gankkotlin.R
 import com.gankkotlin.ui.articledetail.ArticleDetailActivity
 import com.gankkotlin.utils.ImageLoader
+import org.jetbrains.anko.startActivity
 
 
 /**
@@ -24,7 +22,7 @@ import com.gankkotlin.utils.ImageLoader
  * 作    者：xul@13322.com
  * 时    间：2017/6/9
  */
-class DocumentAdapter(data: List<ArticleWithContent>) : BaseQuickAdapter<ArticleWithContent, BaseViewHolder>(R.layout.item_view_document, data) {
+class GankAdapter(data: List<ArticleWithContent>) : BaseQuickAdapter<ArticleWithContent, BaseViewHolder>(R.layout.item_view_gank, data) {
     override fun convert(helper: BaseViewHolder, item: ArticleWithContent) {
         val background = helper.getView<ImageView>(R.id.background)!!
         ImageLoader.loadImage(mContext, item.meizi?.url!!, background)
@@ -73,12 +71,7 @@ class DocumentAdapter(data: List<ArticleWithContent>) : BaseQuickAdapter<Article
         }
 
         helper.itemView.setOnClickListener {
-            val intent = Intent(mContext, ArticleDetailActivity::class.java)
-            intent.putExtra(Constants.IntentKey.ARTICLE, item)
-            val views = ActivityOptionsCompat.makeSceneTransitionAnimation(mContext as Activity,
-                    background, mContext.getString(R.string.transition_document_pic))
-                    .toBundle()
-            mContext.startActivity(intent, views)
+            mContext.startActivity<ArticleDetailActivity>(Constants.IntentKey.ARTICLE to item)
         }
     }
 
