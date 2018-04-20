@@ -63,6 +63,8 @@ dependencies {
     compile "io.reactivex.rxjava2:rxjava:$rxjava_version"
     compile "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
 
+    compile 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar'
+
     compile "com.trello.rxlifecycle2:rxlifecycle:$rxlifecycle_version"
     compile "com.trello.rxlifecycle2:rxlifecycle-components:$rxlifecycle_version"
     compile "com.trello.rxlifecycle2:rxlifecycle-kotlin:$rxlifecycle_version"

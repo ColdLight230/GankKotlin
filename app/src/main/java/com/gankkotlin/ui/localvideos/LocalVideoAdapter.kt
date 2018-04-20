@@ -1,6 +1,7 @@
 package com.gankkotlin.ui.localvideos
 
 import android.widget.ImageView
+import android.widget.Toast
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.data.bean.openeyes.Video
@@ -10,6 +11,7 @@ import com.gankkotlin.extension.formatDuration
 import com.gankkotlin.extension.formatFileSize
 import com.gankkotlin.ui.videoplayer.JCVideoPlayerActivity
 import com.gankkotlin.ui.videoplayer.VideoViewModel
+import com.gankkotlin.utils.ImageLoader
 import org.jetbrains.anko.startActivity
 
 /**
@@ -25,8 +27,10 @@ class LocalVideoAdapter(date: List<Video>) : BaseQuickAdapter<Video, BaseViewHol
                 .setText(R.id.tv_username, item.size.formatFileSize())
 
         val iv_preview = helper.getView<ImageView>(R.id.iv_preview)
+        ImageLoader.loadImage(mContext, item.imageUrl!!, iv_preview)
 
         helper.itemView.setOnClickListener {
+            Toast.makeText(mContext, item.imageUrl!! + "  " + helper.layoutPosition, Toast.LENGTH_SHORT).show()
             mContext.startActivity<JCVideoPlayerActivity>(Constants.FIRST_INTENT_PARAM to VideoViewModel(item.name, item.data, null))
         }
     }

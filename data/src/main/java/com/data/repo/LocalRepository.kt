@@ -28,23 +28,21 @@ object LocalRepository {
                 .flatMap({ contentResolver ->
                     val cursor = contentResolver.query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, MEDIA_COL, null, null,
                             MediaStore.Images.Media.DATE_MODIFIED + " desc")
-                    //                                MediaStore.Images.Media.DATE_MODIFIED + " desc" + " LIMIT " + page * IMediaTask.PAGE_LIMIT + " , " + IMediaTask.PAGE_LIMIT)
                     val localVideos = mutableListOf<Video>()
-                    cursor.use { cursor ->
-                        if (cursor != null && cursor.moveToFirst()) {
+                    cursor.use { mediaCursor ->
+                        if (mediaCursor != null && mediaCursor.moveToFirst()) {
                             do {
-                                val data = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.DATA))
+                                val data = mediaCursor.getString(mediaCursor.getColumnIndex(MediaStore.Video.Media.DATA))
 //                                val id = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media._ID))
-                                val title = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.TITLE))
-                                val type = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.MIME_TYPE))
-                                val size = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.SIZE))
-                                val desc = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.DESCRIPTION))
-                                val date = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.DATE_TAKEN))
-                                val duration = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.DURATION))
-                                val imageUrl = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.MINI_THUMB_MAGIC))
-                                val video = Video(title, duration.toLong(), type, size.toLong(), data, imageUrl, desc)
+                                val title = mediaCursor.getString(mediaCursor.getColumnIndex(MediaStore.Video.Media.TITLE))
+                                val type = mediaCursor.getString(mediaCursor.getColumnIndex(MediaStore.Video.Media.MIME_TYPE))
+                                val size = mediaCursor.getString(mediaCursor.getColumnIndex(MediaStore.Video.Media.SIZE))
+                                val desc = mediaCursor.getString(mediaCursor.getColumnIndex(MediaStore.Video.Media.DESCRIPTION))
+//                                val date = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.DATE_TAKEN))
+                                val duration = mediaCursor.getString(mediaCursor.getColumnIndex(MediaStore.Video.Media.DURATION))
+                                val video = Video(title, duration.toLong(), type, size.toLong(), data, data, desc)
                                 localVideos.add(video)
-                            } while (!cursor.isLast && cursor.moveToNext())
+                            } while (!mediaCursor.isLast && mediaCursor.moveToNext())
                         }
                     }
                     Observable.just(localVideos)
