@@ -6,8 +6,8 @@ import com.data.bean.openeyes.Video
 import io.reactivex.Observable
 
 /**
- * 描    述：
- * 作    者：xul@13322.com
+ * 描    述：本地文件数据仓库
+ * 作    者：xuliang.licht@gmail.com
  * 时    间：2017/9/5
  */
 object LocalRepository {

@@ -16,7 +16,7 @@ import com.gankkotlin.utils.ImageLoader
  */
 class ArticleDetailActivity : BaseActivity<ActivityArticleDetailBinding>(R.layout.activity_article_detail) {
 
-    val article: ArticleWithContent? by lazy { intent.getParcelableExtra<ArticleWithContent>(Constants.IntentKey.ARTICLE) }
+    private val article: ArticleWithContent? by lazy { intent.getParcelableExtra<ArticleWithContent>(Constants.IntentKey.ARTICLE) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

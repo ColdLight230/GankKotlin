@@ -1,1 +1,1 @@
-include ':app', ':data', ':video_player_lib'
+include ':app', ':data', ':video_player_lib', ':skin_loader'

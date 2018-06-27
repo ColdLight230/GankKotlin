@@ -26,7 +26,7 @@ class RecyclerViewDivider(val dividerDrawable: Drawable, val leftPadding: Int = 
 
     private fun drawVertical(canvas: Canvas, parent: RecyclerView, leftPadding: Int, rightPadding: Int) {
         val childCount = parent.childCount
-        for (i in 0..childCount - 1) {
+        for (i in 0 until childCount) {
             val left: Int
             val right: Int
             val top: Int

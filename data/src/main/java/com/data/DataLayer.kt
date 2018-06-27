@@ -22,7 +22,7 @@ object DataLayer {
     lateinit var apiHostUrl: String
 
     // OkHttp Config
-    const val RESPONSE_CACHE_FILE: String = "response_cache"
+    private const val RESPONSE_CACHE_FILE: String = "response_cache"
     const val RESPONSE_CACHE_SIZE = 10 * 1024 * 1024L
     const val HTTP_CONNECT_TIMEOUT = 10L
     const val HTTP_READ_TIMEOUT = 30L

@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.gankkotlin.extension.toast
+import xuliang.me.base.SkinBaseFragment
 import java.net.ConnectException
 import java.net.SocketTimeoutException
 
@@ -18,7 +19,7 @@ import java.net.SocketTimeoutException
  * 作    者：xul@13322.com
  * 时    间：2017/6/8
  */
-abstract class BaseFragment<B : ViewDataBinding>(@LayoutRes val layoutId: Int) : Fragment(), IBaseView {
+abstract class BaseFragment<B : ViewDataBinding>(@LayoutRes val layoutId: Int) : SkinBaseFragment(), IBaseView {
 
     lateinit var binding: B
 

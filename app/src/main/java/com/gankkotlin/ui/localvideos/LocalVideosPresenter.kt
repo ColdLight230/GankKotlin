@@ -5,7 +5,6 @@ import com.data.bean.openeyes.Video
 import com.data.repo.LocalRepository
 import com.gankkotlin.extension.onUI
 import com.gankkotlin.ui.common.base.BasePresenter
-import com.trello.rxlifecycle2.kotlin.bindToLifecycle
 import io.reactivex.schedulers.Schedulers
 
 /**
@@ -36,7 +35,6 @@ class LocalVideosPresenter(val mView: LocalVideosContract.View) : BasePresenter(
     override fun loadLocalVideos(context: Context) {
         LocalRepository.getLocalVideos(context)
                 .subscribeOn(Schedulers.io())
-                .bindToLifecycle(this)
                 .onUI()
                 .subscribe(onNext, onError, onComplete)
     }
